@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<VBox alignment="CENTER" prefHeight="308.0" prefWidth="346.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.javabrew.viewController.PrimaryController">
+    <Label text="Bienvenido a JavaBrew">
+      <font>
+         <Font name="Arial Bold" size="14.0" />
+      </font></Label>
+      <ImageView fitHeight="120.0" fitWidth="120.0">
+        <image>
+            <Image url="https://cdn-icons-png.flaticon.com/512/924/924514.png" />
+        </image>
+      </ImageView>
+    <Button fx:id="btnGestionar" onAction="#onGestionarPedidos" prefHeight="25.0" prefWidth="151.0" text="Gestión de pedidos" />
+</VBox>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="669.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.javabrew.viewController.PedidoViewController">
+
+    <children>
+        <VBox layoutX="20" layoutY="20" prefHeight="626.0" prefWidth="371.0" spacing="10.0">
+            <children>
+                <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="370.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Gestión de Pedidos de Café">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+
+                <Label text="Tipo de café:" />
+                <ComboBox fx:id="cmbTipo" prefWidth="200" />
+
+                <Label text="Tamaño:" />
+                <ComboBox fx:id="cmbTamaño" prefWidth="200" />
+
+                <Label text="Tipo de leche:" />
+                <ComboBox fx:id="cmbLeche" prefWidth="200" />
+            <Separator prefWidth="200.0" />
+
+                <HBox spacing="10">
+                    <children>
+                        <Button fx:id="btnFactory" onAction="#onCrearFactory" text="Crear con Factory" />
+                        <Button fx:id="btnBuilder" onAction="#onCrearBuilder" text="Crear con Builder" />
+                        <Button fx:id="btnClasico" onAction="#onCrearClasico" text="Crear clásico" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="10">
+                    <children>
+                        <Button fx:id="btnVegano" onAction="#onCrearVegano" text="Crear vegano" />
+                        <Button fx:id="btnClonar" onAction="#onClonar" text="Clonar café" />
+                        <Button fx:id="btnEliminar" onAction="#onEliminar" text="Eliminar" />
+                    </children>
+                </HBox>
+            <Separator prefWidth="200.0" />
+            <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="387.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Pedido de Café">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+
+                <TableView fx:id="tblPedidos" prefHeight="300" prefWidth="189.0">
+                    <columns>
+                        <TableColumn fx:id="colTipo" prefWidth="120.0" text="Tipo Café" />
+                        <TableColumn fx:id="colTamaño" prefWidth="120.0" text="Tamaño" />
+                        <TableColumn fx:id="colLeche" prefWidth="120.0" text="Leche" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
