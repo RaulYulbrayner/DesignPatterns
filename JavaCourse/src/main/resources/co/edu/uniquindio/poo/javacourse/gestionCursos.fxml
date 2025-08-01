@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.cursos.viewController.GestionCursosViewController"
+            prefWidth="600" prefHeight="500">
+    <children>
+
+        <VBox layoutX="20" layoutY="20" spacing="10">
+
+            <Label text="Nombre del Curso"/>
+            <TextField fx:id="txtNombreCurso"/>
+
+            <Label text="Código del Curso"/>
+            <TextField fx:id="txtCodigoCurso"/>
+
+            <Button text="Registrar Curso" onAction="#onRegistrarCurso"/>
+
+            <Separator/>
+
+            <Label text="Nombre del Estudiante"/>
+            <TextField fx:id="txtNombreEstudiante"/>
+
+            <Label text="Código del Estudiante"/>
+            <TextField fx:id="txtCodigoEstudiante"/>
+
+            <Button text="Agregar Estudiante" onAction="#onAgregarEstudiante"/>
+
+            <Separator/>
+
+            <Label text="Opciones de Reporte"/>
+            <CheckBox fx:id="chkEncabezado" text="Incluir Encabezado"/>
+            <CheckBox fx:id="chkPiePagina" text="Incluir Pie de Página"/>
+
+            <Button text="Generar Reporte" onAction="#onGenerarReporte"/>
+            <TextArea fx:id="areaReporte" prefRowCount="10"/>
+
+            <Separator/>
+            <Button fx:id="btnVolver" text="Volver al Menú" onAction="#onVolverMenu"/>
+
+        </VBox>
+    </children>
+</AnchorPane>

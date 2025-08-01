@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.cursos.viewController.GestionProfesoresViewController"
+            prefWidth="400" prefHeight="300">
+    <children>
+        <VBox layoutX="30" layoutY="30" spacing="10">
+            <Label text="Nombre del Profesor"/>
+            <TextField fx:id="txtNombreProfesor"/>
+
+            <Label text="Código del Profesor"/>
+            <TextField fx:id="txtCodigoProfesor"/>
+
+            <Button text="Registrar Profesor" onAction="#onRegistrarProfesor"/>
+            <Button fx:id="btnVolver" text="Volver al Menú" onAction="#onVolverMenu"/>
+        </VBox>
+    </children>
+</AnchorPane>
+

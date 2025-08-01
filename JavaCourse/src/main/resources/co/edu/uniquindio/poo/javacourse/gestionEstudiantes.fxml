@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.cursos.viewController.GestionEstudiantesViewController"
+            prefWidth="400" prefHeight="300">
+    <children>
+        <VBox layoutX="30" layoutY="30" spacing="10">
+            <Label text="Nombre del Estudiante"/>
+            <TextField fx:id="txtNombreEstudiante"/>
+
+            <Label text="Código del Estudiante"/>
+            <TextField fx:id="txtCodigoEstudiante"/>
+
+            <Button text="Registrar Estudiante" onAction="#onRegistrarEstudiante"/>
+            <Button fx:id="btnVolver" text="Volver al Menú" onAction="#onVolverMenu"/>
+        </VBox>
+    </children>
+</AnchorPane>
