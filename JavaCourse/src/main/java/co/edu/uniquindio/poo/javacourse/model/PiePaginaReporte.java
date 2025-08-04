@@ -8,7 +8,13 @@ public class PiePaginaReporte extends DecoradorReporte {
 
     @Override
     public String mostrarContenido() {
-        return componente.mostrarContenido() + "\n== FIN DEL REPORTE ==";
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(componente.mostrarContenido());
+        sb.append("\n---------------------------------------------------------\n");
+        sb.append("Este reporte fue generado automáticamente por el sistema.\n");
+
+        return sb.toString();
     }
 
     @Override

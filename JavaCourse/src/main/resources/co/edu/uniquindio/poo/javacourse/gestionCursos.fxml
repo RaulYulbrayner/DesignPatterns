@@ -1,46 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="co.edu.uniquindio.cursos.viewController.GestionCursosViewController"
-            prefWidth="600" prefHeight="500">
+<AnchorPane prefHeight="685.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.javacourse.viewController.GestionCursosViewController">
+
     <children>
+        <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="650.0" prefWidth="800.0">
 
-        <VBox layoutX="20" layoutY="20" spacing="10">
+            <!-- Título centrado -->
+            <top>
+                <HBox alignment="CENTER" prefHeight="38.0" prefWidth="700.0" BorderPane.alignment="TOP_LEFT">
+                    <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                    </padding>
+                    <children>
+                        <Button fx:id="btnVolver" onAction="#onVolverMenu" text="Volver al Menú">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin></Button>
+                        <Label text="Gestión de Cursos">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </top>
 
-            <Label text="Nombre del Curso"/>
-            <TextField fx:id="txtNombreCurso"/>
+            <!-- Panel central con dos columnas -->
+            <center>
+                <HBox alignment="TOP_CENTER" spacing="20">
+                    <padding>
+                        <Insets bottom="5" left="5" right="5" top="5" />
+                    </padding>
+                    <children>
 
-            <Label text="Código del Curso"/>
-            <TextField fx:id="txtCodigoCurso"/>
+                        <!-- Panel Izquierdo -->
+                        <VBox prefWidth="400.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 0;">
+                            <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">
+                           <children>
+                               <Label alignment="CENTER" prefWidth="Infinity" text="Información del Curso" textAlignment="CENTER">
+                                   <font>
+                                       <Font name="System Bold Italic" size="15.0" />
+                                   </font>
+                               </Label>
 
-            <Button text="Registrar Curso" onAction="#onRegistrarCurso"/>
+                               <Separator prefWidth="200.0" />
+                               <Label text="Nombre del Curso" />
+                                      <TextField fx:id="txtNombreCurso" />
+      
+                                      <Label text="Código del Curso" />
+                                      <TextField fx:id="txtCodigoCurso" />
+      
+                                      <Button onAction="#onRegistrarCurso" text="Registrar Curso" />
+                           </children>
+                        </VBox>
 
-            <Separator/>
+                        <VBox prefHeight="82.0" prefWidth="395.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">
+                           <children>
+                               <Label alignment="CENTER" prefWidth="Infinity" text="Información del Profesor" textAlignment="CENTER">
+                                   <font>
+                                       <Font name="System Bold Italic" size="15.0" />
+                                   </font>
+                               </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                     <ComboBox fx:id="comboProfesor" prefHeight="26.0" prefWidth="292.0">
+                                       <HBox.margin>
+                                          <Insets bottom="3.0" right="10.0" />
+                                       </HBox.margin></ComboBox>
+                                     <Button onAction="#onAsignarProfesor" prefHeight="26.0" prefWidth="70.0" text="Asignar" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
 
-            <Label text="Nombre del Estudiante"/>
-            <TextField fx:id="txtNombreEstudiante"/>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">
+                           <children>
+                               <Label alignment="CENTER" prefWidth="Infinity" text="Información de los Estudiantes" textAlignment="CENTER">
+                                   <font>
+                                       <Font name="System Bold Italic" size="15.0" />
+                                   </font>
+                               </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                     <ComboBox fx:id="comboEstudiantes" prefHeight="26.0" prefWidth="316.0">
+                                       <HBox.margin>
+                                          <Insets bottom="3.0" right="10.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                     <Button onAction="#onAgregarEstudiante" prefHeight="26.0" prefWidth="98.0" text="Agregar" />
+                                 </children>
+                              </HBox>
 
-            <Label text="Código del Estudiante"/>
-            <TextField fx:id="txtCodigoEstudiante"/>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">
+                                 <children>
+            
+                                            <Label text="Estudiantes del Curso" />
+            
+                                            <Separator />
+                                     <TableView fx:id="tblEstudiantesCurso" prefHeight="180">
+                                         <columns>
+                                             <TableColumn fx:id="colNombre" prefWidth="200" text="Nombre" />
+                                             <TableColumn fx:id="colCodigo" prefWidth="200" text="Código" />
+                                         </columns>
+                                     </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <Separator prefWidth="200.0" />
 
-            <Button text="Agregar Estudiante" onAction="#onAgregarEstudiante"/>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+      
+                                      <CheckBox fx:id="chkEncabezado" text="Incluir Encabezado">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin></CheckBox>
+                                      <CheckBox fx:id="chkPiePagina" text="Incluir Pie de Página">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin></CheckBox>
+                                      <Button onAction="#onGenerarReporte" text="Generar Reporte">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </HBox.margin></Button>
+                           </children>
+                        </HBox>
+                            </children>
+                        </VBox>
 
-            <Separator/>
+                        <!-- Panel Derecho -->
+                        <VBox prefWidth="400.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1;">
+                            <padding>
+                                <Insets bottom="10" left="10" right="10" top="10" />
+                            </padding>
+                            <children>
+                                <Label alignment="CENTER" prefWidth="Infinity" text="Reporte Generado" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold Italic" size="15.0" />
+                                    </font>
+                                </Label>
 
-            <Label text="Opciones de Reporte"/>
-            <CheckBox fx:id="chkEncabezado" text="Incluir Encabezado"/>
-            <CheckBox fx:id="chkPiePagina" text="Incluir Pie de Página"/>
+                                <Separator prefWidth="200.0" />
+                                <TextArea fx:id="areaReporte" prefRowCount="20" />
+                        <Separator prefWidth="200.0" />
 
-            <Button text="Generar Reporte" onAction="#onGenerarReporte"/>
-            <TextArea fx:id="areaReporte" prefRowCount="10"/>
+                                <HBox spacing="10">
+                                    <Button text="Limpiar Reporte" onAction="#onLimpiarReporte"/>
+                                    <Button text="Exportar a TXT" onAction="#onExportarReporte"/>
+                                </HBox>
 
-            <Separator/>
-            <Button fx:id="btnVolver" text="Volver al Menú" onAction="#onVolverMenu"/>
+                            </children>
+                        </VBox>
 
-        </VBox>
+                    </children>
+                </HBox>
+            </center>
+
+        </BorderPane>
     </children>
 </AnchorPane>

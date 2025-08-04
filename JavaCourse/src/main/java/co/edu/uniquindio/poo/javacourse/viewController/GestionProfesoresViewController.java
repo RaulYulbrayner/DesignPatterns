@@ -1,10 +1,11 @@
 package co.edu.uniquindio.poo.javacourse.viewController;
 
 import co.edu.uniquindio.poo.javacourse.App;
+import co.edu.uniquindio.poo.javacourse.controller.ProfesorController;
+import co.edu.uniquindio.poo.javacourse.model.Profesor;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class GestionProfesoresViewController {
 
@@ -17,7 +18,23 @@ public class GestionProfesoresViewController {
     private TextField txtCodigoProfesor;
 
     @FXML
+    private TableView<Profesor> tblProfesores;
+
+    @FXML
+    private TableColumn<Profesor, String> colNombre;
+
+    @FXML
+    private TableColumn<Profesor, String> colCodigo;
+
+    @FXML
     private Button btnVolver;
+
+    @FXML
+    public void initialize() {
+        colNombre.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getNombre()));
+        colCodigo.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getCodigo()));
+        tblProfesores.setItems(ProfesorController.obtenerProfesores());
+    }
 
     @FXML
     private void onRegistrarProfesor() {
@@ -25,15 +42,20 @@ public class GestionProfesoresViewController {
         String codigo = txtCodigoProfesor.getText();
 
         if (!nombre.isEmpty() && !codigo.isEmpty()) {
-            mostrarMensaje("Profesor registrado: " + nombre + " (" + codigo + ")");
+            boolean registrado = ProfesorController.registrarProfesor(nombre, codigo);
+            if (registrado) {
+                limpiarCampos();
+            } else {
+                mostrarMensaje("Ya existe un profesor con ese código.");
+            }
         } else {
             mostrarMensaje("Ingrese todos los datos del profesor.");
         }
     }
 
-    @FXML
-    private void onVolverMenu() {
-        app.mostrarMenuPrincipal();
+    private void limpiarCampos() {
+        txtNombreProfesor.clear();
+        txtCodigoProfesor.clear();
     }
 
     private void mostrarMensaje(String mensaje) {
@@ -42,6 +64,11 @@ public class GestionProfesoresViewController {
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void onVolverMenu() {
+        app.mostrarMenuPrincipal();
     }
 
     public void setApp(App app) {

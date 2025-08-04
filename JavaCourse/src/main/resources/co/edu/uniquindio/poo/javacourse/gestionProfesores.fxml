@@ -2,22 +2,51 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="co.edu.uniquindio.cursos.viewController.GestionProfesoresViewController"
-            prefWidth="400" prefHeight="300">
+<AnchorPane prefHeight="571.0" prefWidth="400" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.javacourse.viewController.GestionProfesoresViewController">
     <children>
-        <VBox layoutX="30" layoutY="30" spacing="10">
-            <Label text="Nombre del Profesor"/>
-            <TextField fx:id="txtNombreProfesor"/>
+        <Button fx:id="btnVolver" layoutX="28.0" layoutY="25.0" onAction="#onVolverMenu" text="Volver al Menú" />
 
-            <Label text="Código del Profesor"/>
-            <TextField fx:id="txtCodigoProfesor"/>
+        <VBox layoutX="28.0" layoutY="78.0" prefHeight="194.0" prefWidth="345.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">
 
-            <Button text="Registrar Profesor" onAction="#onRegistrarProfesor"/>
-            <Button fx:id="btnVolver" text="Volver al Menú" onAction="#onVolverMenu"/>
+            <Label alignment="CENTER" prefWidth="Infinity" text="Gestión Profesor" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold Italic" size="15.0" />
+                </font>
+            </Label>
+
+            <Separator prefWidth="200.0" />
+
+            <Label text="Nombre del Profesor" />
+            <TextField fx:id="txtNombreProfesor" />
+
+            <Label text="Código del Profesor" />
+            <TextField fx:id="txtCodigoProfesor" />
+
+            <Button onAction="#onRegistrarProfesor" text="Registrar Profesor" />
+
         </VBox>
+
+        <VBox layoutX="28.0" layoutY="312.0" prefHeight="234.0" prefWidth="345.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">
+
+            <Label alignment="CENTER" prefWidth="Infinity" text="Profesrores Registrados" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold Italic" size="15.0" />
+                </font>
+            </Label>
+
+            <Separator prefWidth="200.0" />
+
+            <TableView fx:id="tblProfesores" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="150"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+
+
     </children>
 </AnchorPane>
-

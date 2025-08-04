@@ -20,11 +20,14 @@ public class App extends Application {
 
     public void mostrarMenuPrincipal() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/menuPrincipal.fxml"));
-            AnchorPane root = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("menuPrincipal.fxml"));
+            javafx.scene.layout.VBox rootLayout = (javafx.scene.layout.VBox) loader.load();
             MenuPrincipalViewController controller = loader.getController();
             controller.setApp(this);
-            primaryStage.setScene(new Scene(root));
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,10 +36,12 @@ public class App extends Application {
 
     public void mostrarGestionCursos() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestionCursos.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("gestionCursos.fxml"));
             AnchorPane root = loader.load();
             GestionCursosViewController controller = loader.getController();
             controller.setApp(this);
+
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
         } catch (Exception e) {
@@ -46,10 +51,11 @@ public class App extends Application {
 
     public void mostrarGestionEstudiantes() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestionEstudiantes.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("gestionEstudiantes.fxml"));
             AnchorPane root = loader.load();
             GestionEstudiantesViewController controller = loader.getController();
             controller.setApp(this);
+
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
         } catch (Exception e) {
@@ -59,7 +65,7 @@ public class App extends Application {
 
     public void mostrarGestionProfesores() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestionProfesores.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("gestionProfesores.fxml"));
             AnchorPane root = loader.load();
             GestionProfesoresViewController controller = loader.getController();
             controller.setApp(this);

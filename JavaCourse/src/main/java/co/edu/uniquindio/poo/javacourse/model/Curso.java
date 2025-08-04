@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Curso implements CursoComponent {
+
     private final String nombre;
     private final String codigo;
     private final List<Estudiante> estudiantes;
+    private Profesor profesor;
 
     public Curso(String nombre, String codigo) {
         this.nombre = nombre;
@@ -38,6 +40,14 @@ public class Curso implements CursoComponent {
         return new ArrayList<>(estudiantes);
     }
 
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
+    public Profesor getProfesor() {
+        return profesor;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -48,11 +58,28 @@ public class Curso implements CursoComponent {
 
     @Override
     public String mostrarContenido() {
-        StringBuilder sb = new StringBuilder("Curso: " + nombre + " (" + codigo + ")\n");
-        sb.append("  Estudiantes:\n");
-        for (Estudiante e : estudiantes) {
-            sb.append("    - ").append(e.toString()).append("\n");
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Curso: ").append(nombre).append("\n");
+
+        if (profesor != null) {
+            sb.append("Profesor: ").append(profesor.getNombre()).append("\n");
+        } else {
+            sb.append("Profesor: No asignado\n");
         }
+
+        sb.append("\nEstudiantes registrados:\n");
+        if (estudiantes.isEmpty()) {
+            sb.append("No hay estudiantes registrados.\n");
+        } else {
+            int i = 1;
+            for (Estudiante e : estudiantes) {
+                sb.append(i++).append(". ").append(e.getNombre()).append("\n");
+            }
+        }
+
+        sb.append("\nTotal de estudiantes: ").append(estudiantes.size()).append("\n");
+
         return sb.toString();
     }
 

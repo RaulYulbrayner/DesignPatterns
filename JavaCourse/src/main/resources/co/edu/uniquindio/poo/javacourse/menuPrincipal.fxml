@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="co.edu.uniquindio.cursos.viewController.MenuPrincipalViewController">
+<VBox alignment="CENTER" prefHeight="255.0" prefWidth="382.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.javacourse.viewController.MenuPrincipalViewController">
     <children>
-        <Button fx:id="btnCursos" text="Gestión de Cursos" onAction="#onGestionCursos"/>
-        <Button fx:id="btnEstudiantes" text="Gestión de Estudiantes" onAction="#onGestionEstudiantes"/>
-        <Button fx:id="btnProfesores" text="Gestión de Profesores" onAction="#onGestionProfesores"/>
+        <Label text="Gestión de Cursos" style="-fx-font-weight: bold;">
+            <font>
+                <Font name="System" size="15.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnEstudiantes" onAction="#onGestionEstudiantes" prefHeight="26.0" prefWidth="188.0" text="Gestión de Estudiantes" />
+        <Button fx:id="btnProfesores" onAction="#onGestionProfesores" prefHeight="26.0" prefWidth="188.0" text="Gestión de Profesores" />
+        <Button fx:id="btnCursos" onAction="#onGestionCursos" prefHeight="26.0" prefWidth="188.0" text="Gestión de Cursos" />
     </children>
 </VBox>
