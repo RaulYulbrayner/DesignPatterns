@@ -14,6 +14,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class GestionCursosViewController {
 
     private App app;
@@ -139,6 +143,34 @@ public class GestionCursosViewController {
             mostrarMensaje("Curso no encontrado.");
         }
     }
+
+    @FXML
+    private void onLimpiarReporte() {
+        areaReporte.clear();
+    }
+
+    @FXML
+    private void onExportarReporte() {
+        String contenido = areaReporte.getText();
+
+        if (contenido == null || contenido.trim().isEmpty()) {
+            mostrarMensaje("No hay contenido para exportar.");
+            return;
+        }
+
+        try {
+            String nombreArchivo = "reporte_curso_" + System.currentTimeMillis() + ".txt";
+            File archivo = new File(nombreArchivo);
+            try (PrintWriter writer = new PrintWriter(archivo)) {
+                writer.print(contenido);
+            }
+            mostrarMensaje("Reporte exportado exitosamente a: " + archivo.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarMensaje("Ocurrió un error al exportar el reporte.");
+        }
+    }
+
 
     @FXML
     private void onVolverMenu() {
