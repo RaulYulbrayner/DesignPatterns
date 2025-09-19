@@ -1,0 +1,14 @@
+                  REPORTE DETALLADO DEL CURSO
+Fecha de generación: 19/09/2025 10:27:02
+
+Curso: Programacion 2
+Profesor: raul
+
+Estudiantes registrados:
+1. mafla
+2. carlos
+
+Total de estudiantes: 2
+
+---------------------------------------------------------
+Este reporte fue generado automáticamente por el sistema.
