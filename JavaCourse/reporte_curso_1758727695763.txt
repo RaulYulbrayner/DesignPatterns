@@ -1,12 +1,12 @@
                   REPORTE DETALLADO DEL CURSO
-Fecha de generación: 19/09/2025 10:27:02
+Fecha de generación: 24/09/2025 10:27:52
 
 Curso: Programacion 2
-Profesor: raul
+Profesor: Yulbraynner 
 
 Estudiantes registrados:
-1. mafla
-2. carlos
+1. Raul
+2. Juan
 
 Total de estudiantes: 2
 

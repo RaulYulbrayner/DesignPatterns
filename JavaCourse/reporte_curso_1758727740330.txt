@@ -1,0 +1,14 @@
+                  REPORTE DETALLADO DEL CURSO
+Fecha de generación: 24/09/2025 10:27:52
+
+Curso: Programacion 2
+Profesor: Yulbraynner 
+
+Estudiantes registrados:
+1. Raul
+2. Juan
+
+Total de estudiantes: 2
+
+---------------------------------------------------------
+Este reporte fue generado automáticamente por el sistema.
