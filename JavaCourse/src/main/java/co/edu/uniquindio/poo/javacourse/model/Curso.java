@@ -83,6 +83,15 @@ public class Curso implements CursoComponent {
         return sb.toString();
     }
 
+
+
+
+
+
+
+
+
+
     @Override
     public int contarSubComponentes() {
         return 1;
